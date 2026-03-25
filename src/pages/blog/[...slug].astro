@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Comments from '../../components/Comments.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: post,
+	}));
+}
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+	<div class="fade-in">
+		<article class="prose prose-stone prose-lg max-w-none prose-headings:font-sans prose-headings:font-bold prose-a:text-terracotta hover:prose-a:underline prose-blockquote:border-terracotta prose-blockquote:bg-linen prose-blockquote:italic prose-img:rounded-xl">
+			<header class="mb-12 not-prose">
+				<div class="flex items-center gap-4 text-sm font-sans font-medium text-charcoal/50 uppercase tracking-widest mb-4">
+					<time datetime={post.data.pubDate.toISOString()}>
+						{post.data.pubDate.toLocaleDateString('en-us', {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+						})}
+					</time>
+					<span>•</span>
+					<div class="flex gap-2">
+						{post.data.tags.map(tag => (
+							<span class="bg-sage/10 text-sage px-2 py-0.5 rounded text-xs">{tag}</span>
+						))}
+					</div>
+				</div>
+				<h1 class="text-4xl md:text-5xl font-sans font-extrabold text-charcoal tracking-tight leading-tight">
+					{post.data.title}
+				</h1>
+			</header>
+			
+			{post.data.heroImage && (
+				<img
+					src={post.data.heroImage}
+					alt=""
+					class="w-full h-auto aspect-video object-cover rounded-2xl mb-12 shadow-sm"
+				/>
+			)}
+
+			<div class="content">
+				<Content />
+			</div>
+		</article>
+	</div>
+
+	<Comments 
+		pageId={post.id} 
+		pageUrl={Astro.url.href} 
+		pageTitle={post.data.title} 
+	/>
+</BaseLayout>

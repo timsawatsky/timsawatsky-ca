@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About" description="Learn more about Tim Sawatsky">
+	<div class="fade-in">
+		<article class="prose prose-stone prose-lg max-w-none prose-headings:font-sans prose-headings:font-bold prose-a:text-terracotta hover:prose-a:underline">
+			<h1 class="text-5xl font-sans font-extrabold text-charcoal tracking-tight mb-8">About Tim Sawatsky</h1>
+
+			<div class="grid md:grid-cols-2 gap-12 not-prose mb-16">
+				<img 
+					src="Tim-Alfie2.jpg" 
+					alt="Tim Sawatsky" 
+					class="rounded-3xl shadow-xl aspect-square object-cover"
+				/>
+				<div class="space-y-6 flex flex-col justify-center">
+					<h2 class="text-3xl font-sans font-extrabold text-charcoal">My Mission</h2>
+					<p class="text-lg text-charcoal/70 leading-relaxed">
+						Connecting people with God, others, and self with pastoral care and counselling
+				</div>
+			</div>
+
+			<h2>Pastoral Care</h2>
+			<p>
+				We have attended C3 Calgary West Church since 2004 and had the privilege of leading pastoral care since 2014
+			</p>
+
+			<h2>Counseling</h2>
+			<p>
+				In my counseling practice, I guide individuals and families through life’s challenges. I am a Master Practitioner in Clinical Counselling - Provisional (MPCCP) with a Diploma in Applied Psychology and Counselling Specializing in Professional Counselling. I'm committed to delivering comprehensive counselling services tailored for adults and couples. My expertise encompasses a broad spectrum of concerns, including relationship difficulties, domestic violence, grief, anxiety, and depression.
+			</p>
+
+			<div class="mt-16 p-12 bg-charcoal text-linen rounded-3xl text-center not-prose">
+				<h2 class="text-3xl font-sans font-bold mb-4">Want to connect?</h2>
+				
+				<a 
+					href="mailto:timsawatsky@gmail.com" 
+					class="inline-block bg-terracotta text-white font-sans font-bold px-10 py-4 rounded-full hover:scale-105 transition-all no-underline"
+				>
+					Send me an email
+				</a>
+			</div>
+		</article>
+	</div>
+</BaseLayout>

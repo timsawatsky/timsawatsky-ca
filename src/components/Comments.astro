@@ -1,0 +1,90 @@
+---
+/**
+ * src/components/Comments.astro
+ * 
+ * A minimalist commenting component using Cusdis (https://cusdis.com).
+ * This fits the "Digital Sanctuary" aesthetic: lightweight, privacy-focused,
+ * and no account required for readers.
+ * 
+ * Moderation: You can approve/delete comments via the Cusdis dashboard or 
+ * directly from your email using their "Quick Approve" feature.
+ */
+
+interface Props {
+  pageId: string;
+  pageUrl: string;
+  pageTitle: string;
+}
+
+const { pageId, pageUrl, pageTitle } = Astro.props;
+
+// Use an environment variable for the App ID. 
+// You should create a .env file with: PUBLIC_CUSDIS_APP_ID=your_id_here
+const CUSDIS_APP_ID = import.meta.env.PUBLIC_CUSDIS_APP_ID || "YOUR_APP_ID"; 
+---
+
+<div id="comments-section" class="mt-20 pt-10 border-t border-sage/20" style="opacity: 1 !important; visibility: visible !important;">
+  <h2 class="font-sans font-bold text-2xl text-charcoal mb-8 tracking-tight uppercase text-xs">Reflections & Thoughts</h2>
+  
+  <div 
+    id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id={CUSDIS_APP_ID}
+    data-page-id={pageId}
+    data-page-url={pageUrl}
+    data-page-title={pageTitle}
+    data-theme="light"
+  ></div>
+</div>
+
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script is:inline>
+  /**
+   * Accessibility Fix: Add a title to the Cusdis iframe for screen readers.
+   * Also helps ensure the component remains visible.
+   */
+  function setupCusdisAccessibility() {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.tagName === 'IFRAME') {
+            node.setAttribute('title', 'Comments section');
+            // Ensure the iframe doesn't have any hidden/opacity-0 state
+            node.style.opacity = '1';
+            node.style.visibility = 'visible';
+          }
+        });
+      });
+    });
+
+    const thread = document.getElementById('cusdis_thread');
+    if (thread) {
+      observer.observe(thread, { childList: true });
+    }
+  }
+
+  // Run on initial load
+  setupCusdisAccessibility();
+
+  // Re-run on Astro page transitions (if using View Transitions)
+  document.addEventListener('astro:after-swap', setupCusdisAccessibility);
+</script>
+
+<style is:global>
+  /* Ensure the Cusdis section doesn't have any conflicting animations */
+  #comments-section {
+    opacity: 1 !important;
+    animation: none !important;
+    transition: none !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  #cusdis_thread iframe {
+    width: 100% !important;
+    min-height: 200px;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+</style>

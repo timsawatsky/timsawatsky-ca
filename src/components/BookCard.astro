@@ -1,0 +1,44 @@
+---
+// src/components/BookCard.astro
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	review: CollectionEntry<'reviews'>;
+}
+
+const { review } = Astro.props;
+---
+
+<article class="group relative flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-charcoal/5 hover:border-terracotta/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+  <div class="aspect-[2/3] overflow-hidden">
+    <img 
+      src={review.data.heroImage} 
+      alt={`Cover of ${review.data.title}`} 
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+    />
+  </div>
+  
+  <div class="p-6 flex flex-col flex-grow">
+    <div class="flex items-center justify-between mb-3">
+      <div class="flex gap-1 text-xs text-terracotta">
+        {[...Array(5)].map((_, i) => (
+          <span class={i < review.data.rating ? "opacity-100" : "opacity-30"}>★</span>
+        ))}
+      </div>
+      <span class="text-[10px] font-sans font-bold uppercase tracking-widest text-charcoal/40 bg-linen px-2 py-0.5 rounded">
+        {review.data.tags[0]}
+      </span>
+    </div>
+    
+    <h3 class="text-xl font-sans font-extrabold text-charcoal tracking-tight group-hover:text-terracotta transition-colors mb-1">
+      <a href={`/reviews/${review.id}/`} class="no-underline after:absolute after:inset-0">
+        {review.data.title}
+      </a>
+    </h3>
+    <p class="text-sm font-sans font-medium text-charcoal/50 mb-4">{review.data.author}</p>
+    
+    <p class="text-sm leading-relaxed text-charcoal/60 line-clamp-2 mt-auto">
+      {review.data.description}
+    </p>
+  </div>
+</article>

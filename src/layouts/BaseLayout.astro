@@ -1,0 +1,34 @@
+---
+// src/layouts/BaseLayout.astro
+import '../styles/global.css';
+import '@fontsource/lora';
+import '@fontsource-variable/inter';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Reflections and resources for spiritual direction and counselling." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | Tim Sawatsky</title>
+		<meta name="description" content={description} />
+	</head>
+	<body class="flex flex-col min-h-screen selection:bg-terracotta selection:text-white">
+		<Navigation />
+		<main class="flex-grow max-w-4xl mx-auto px-6 py-12 w-full">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

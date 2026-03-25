@@ -1,0 +1,30 @@
+---
+// src/components/Navigation.astro
+const navItems = [
+  { name: 'About', href: '/about' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Book Reviews', href: '/reviews' },
+  { name: 'YouTube', href: 'https://youtube.com/@Ducksnotinarow1', target: '_blank' },
+];
+---
+
+<header class="py-8 bg-linen/90 backdrop-blur-sm sticky top-0 z-50 border-b border-charcoal/5">
+  <nav class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <a href="/" class="text-2xl font-sans font-bold text-charcoal tracking-tight no-underline hover:text-terracotta">
+      Tim Sawatsky
+    </a>
+    <ul class="flex flex-wrap justify-center gap-x-8 gap-y-2">
+      {navItems.map(item => (
+        <li>
+          <a 
+            href={item.href} 
+            target={item.target}
+            class="font-sans text-sm font-medium text-charcoal/70 uppercase tracking-widest no-underline hover:text-terracotta hover:underline decoration-2 underline-offset-8 transition-all"
+          >
+            {item.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

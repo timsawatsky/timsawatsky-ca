@@ -1,0 +1,69 @@
+---
+// src/components/YouTubeEmbed.astro
+import { parseStringPromise } from 'xml2js';
+
+// Your actual YouTube Channel ID
+const CHANNEL_ID = 'UCgwopAlppToMfcy9GC5Vi0Q'; 
+const RSS_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+
+let latestVideo = {
+  id: '',
+  title: 'Latest Reflection',
+};
+
+try {
+  const response = await fetch(RSS_URL);
+  if (response.ok) {
+    const xml = await response.text();
+    const result = await parseStringPromise(xml);
+    const entry = result.feed.entry[0];
+    latestVideo = {
+      id: entry['yt:videoId'][0],
+      title: entry.title[0],
+    };
+  }
+} catch (e) {
+  console.error('Failed to fetch YouTube RSS feed:', e);
+}
+
+const { id, title } = latestVideo;
+---
+
+<div class="youtube-card group bg-charcoal rounded-3xl overflow-hidden shadow-2xl">
+  {id ? (
+    <div class="aspect-video w-full">
+      <iframe
+        width="100%"
+        height="100%"
+        src={`https://www.youtube.com/embed/${id}`}
+        title={title}
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        class="group-hover:opacity-90 transition-opacity"
+      ></iframe>
+    </div>
+  ) : (
+    <div class="aspect-video w-full flex items-center justify-center bg-charcoal text-linen/30 flex-col gap-4 p-8 text-center">
+      <div class="w-16 h-16 rounded-full border-2 border-dashed border-linen/20 flex items-center justify-center">
+        <span class="text-2xl">▶</span>
+      </div>
+      <p class="text-sm font-sans uppercase tracking-widest">YouTube Integration Ready</p>
+      <p class="text-xs max-w-xs opacity-50 italic">Add your Channel ID to src/components/YouTubeEmbed.astro to show your latest video.</p>
+    </div>
+  )}
+  
+  <div class="p-8 flex flex-col sm:flex-row items-center justify-between gap-6 bg-charcoal-light">
+    <div class="text-center sm:text-left">
+      <h3 class="text-xl font-sans font-extrabold text-linen mb-1">Join the Community</h3>
+      <p class="text-sm text-linen/50">Weekly videos on spiritual direction and counselling.</p>
+    </div>
+    <a 
+      href="https://youtube.com/@timsawatsky?sub_confirmation=1" 
+      target="_blank"
+      class="bg-[#FF0000] text-white font-sans font-bold px-8 py-3 rounded-full hover:scale-105 transition-all no-underline shadow-lg flex items-center gap-2"
+    >
+      <span>Subscribe</span>
+    </a>
+  </div>
+</div>

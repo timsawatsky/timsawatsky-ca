@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReflectionCard from '../../components/ReflectionCard.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title="Reflections" description="A collection of thoughts on spiritual direction, counseling, and the contemplative life.">
+	<div class="fade-in">
+		<header class="mb-16 border-b border-charcoal/5 pb-12">
+			<h1 class="text-5xl font-sans font-extrabold text-charcoal tracking-tight mb-4">Reflections</h1>
+			<p class="text-xl text-charcoal/60 leading-relaxed max-w-2xl">
+				Musings on finding the sacred in the ordinary, the quiet in the noise, and the path towards healing and wholeness.
+			</p>
+		</header>
+
+		<div class="space-y-0">
+			{posts.map((post) => (
+				<ReflectionCard post={post} />
+			))}
+		</div>
+	</div>
+</BaseLayout>

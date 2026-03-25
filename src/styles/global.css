@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-serif: "Lora", "Merriweather", serif;
+  --font-sans: "Inter Variable", "Montserrat", sans-serif;
+
+  --color-linen: #F9F7F2;
+  --color-charcoal: #2D2D2D;
+  --color-terracotta: #C37B68;
+  --color-sage: #8A9A5B;
+}
+
+@layer base {
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  body {
+    @apply bg-linen text-charcoal font-serif antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold tracking-tight;
+  }
+
+  a {
+    @apply text-terracotta hover:underline transition-colors duration-200;
+  }
+
+  /* Focus and accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-sage;
+  }
+}

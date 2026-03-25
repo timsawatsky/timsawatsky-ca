@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookCard from '../../components/BookCard.astro';
+
+const reviews = (await getCollection('reviews')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title="Book Reviews" description="Recommended resources for spiritual growth, counseling techniques, and contemplative practice.">
+	<div class="fade-in">
+		<header class="mb-16 border-b border-charcoal/5 pb-12">
+			<h1 class="text-5xl font-sans font-extrabold text-charcoal tracking-tight mb-4 text-charcoal">Recommended Reading</h1>
+			<p class="text-xl text-charcoal/60 leading-relaxed max-w-2xl">
+				A curated selection of books that have shaped my practice and my personal journey.
+			</p>
+		</header>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			{reviews.map((review) => (
+				<BookCard review={review} />
+			))}
+		</div>
+	</div>
+</BaseLayout>

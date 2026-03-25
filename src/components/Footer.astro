@@ -1,0 +1,33 @@
+---
+// src/components/Footer.astro
+const today = new Date();
+---
+
+<footer class="mt-auto border-t border-charcoal/5 py-12 bg-charcoal text-linen/70">
+  <div class="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+    <div class="space-y-4">
+      <h2 class="text-xl font-sans font-bold text-linen">Tim Sawatsky</h2>
+      <p class="max-w-xs text-sm leading-relaxed">
+        Reflections and resources for spiritual direction and counselling.
+        A digital sanctuary for the soul.
+      </p>
+    </div>
+    
+    <div class="space-y-4 md:text-right">
+      <h3 class="text-sm font-sans font-bold uppercase tracking-widest text-linen">Connect</h3>
+      <ul class="flex md:justify-end gap-6 text-sm">
+        <li><a href="https://youtube.com/@Ducksnotinarow1" target="_blank" class="text-linen/70 hover:text-terracotta transition-colors no-underline">YouTube</a></li>
+        <li><a href="/contact" class="text-linen/70 hover:text-terracotta transition-colors no-underline">Contact</a></li>
+        <li><a href="/rss.xml" class="text-linen/70 hover:text-terracotta transition-colors no-underline">RSS</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="max-w-4xl mx-auto px-6 mt-12 pt-8 border-t border-linen/10 text-xs text-center flex flex-col sm:flex-row justify-between items-center gap-4">
+    <p>&copy; {today.getFullYear()} Tim Sawatsky. All rights reserved.</p>
+    <div class="flex gap-4">
+      <a href="/privacy" class="text-linen/50 hover:text-linen no-underline transition-colors">Privacy Policy</a>
+      <a href="/terms" class="text-linen/50 hover:text-linen no-underline transition-colors">Terms of Service</a>
+    </div>
+  </div>
+</footer>
