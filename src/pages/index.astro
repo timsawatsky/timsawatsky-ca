@@ -81,7 +81,7 @@ const latestReviews = (await getCollection('reviews')).sort(
 					{latestReviews.map(review => (
 						<div class="flex gap-6 items-center group relative">
 							<div class="w-20 h-28 flex-shrink-0 overflow-hidden rounded-lg shadow-md group-hover:shadow-lg transition-shadow">
-								<img src={review.data.heroImage} alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+								<img src={review.data.heroImage} alt={`Cover of ${review.data.title}`} class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
 							</div>
 							<div class="space-y-1">
 								<div class="flex gap-1 text-[8px] text-terracotta">

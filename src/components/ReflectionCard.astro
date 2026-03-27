@@ -51,7 +51,7 @@ const { post } = Astro.props;
       <div class="w-full md:w-48 aspect-video md:aspect-square overflow-hidden rounded-xl bg-linen-dark">
         <img 
           src={post.data.heroImage} 
-          alt="" 
+          alt={`Visual for ${post.data.title}`} 
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>

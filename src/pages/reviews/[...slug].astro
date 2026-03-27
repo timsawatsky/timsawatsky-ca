@@ -15,7 +15,14 @@ const review = Astro.props;
 const { Content } = await render(review);
 ---
 
-<BaseLayout title={review.data.title} description={review.data.description}>
+<BaseLayout 
+	title={review.data.title} 
+	description={review.data.description}
+	image={review.data.heroImage}
+	type="review"
+	articleDate={review.data.pubDate.toISOString()}
+	author={review.data.author}
+>
 	<div class="fade-in">
 		<div class="flex flex-col md:flex-row gap-12 mb-12">
 			<div class="w-full md:w-1/3">

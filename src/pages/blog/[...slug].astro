@@ -15,7 +15,13 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout 
+	title={post.data.title} 
+	description={post.data.description}
+	image={post.data.heroImage}
+	type="article"
+	articleDate={post.data.pubDate.toISOString()}
+>
 	<div class="fade-in">
 		<article class="prose prose-stone prose-lg max-w-none prose-headings:font-sans prose-headings:font-bold prose-a:text-terracotta hover:prose-a:underline prose-blockquote:border-terracotta prose-blockquote:bg-linen prose-blockquote:italic prose-img:rounded-xl">
 			<header class="mb-12 not-prose">
@@ -42,7 +48,7 @@ const { Content } = await render(post);
 			{post.data.heroImage && (
 				<img
 					src={post.data.heroImage}
-					alt=""
+					alt={`Visual for ${post.data.title}`}
 					class="w-full h-auto aspect-video object-cover rounded-2xl mb-12 shadow-sm"
 				/>
 			)}

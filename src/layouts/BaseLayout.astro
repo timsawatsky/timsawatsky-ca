@@ -5,13 +5,30 @@ import '@fontsource/lora';
 import '@fontsource-variable/inter';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
 
 interface Props {
 	title: string;
 	description?: string;
+	image?: string;
+	type?: 'website' | 'article' | 'review';
+	articleDate?: string;
+	author?: string;
 }
 
-const { title, description = "Reflections and resources for spiritual direction and counselling." } = Astro.props;
+const { 
+	title, 
+	description = "Reflections and resources for spiritual direction and counselling.",
+	image = "/Tim-Alfie2.jpg", // Default social image
+	type = "website",
+	articleDate,
+	author
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(image, Astro.site);
+const siteTitle = "Tim Sawatsky";
+const fullTitle = `${title} | ${siteTitle}`;
 ---
 
 <!doctype html>
@@ -21,8 +38,43 @@ const { title, description = "Reflections and resources for spiritual direction 
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title} | Tim Sawatsky</title>
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Primary Meta Tags -->
+		<title>{fullTitle}</title>
+		<meta name="title" content={fullTitle} />
 		<meta name="description" content={description} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content={type === 'website' ? 'website' : 'article'} />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={socialImageURL} />
+		{articleDate && <meta property="article:published_time" content={articleDate} />}
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={socialImageURL} />
+
+		<!-- Sitemap & RSS -->
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="alternate" type="application/rss+xml" title={siteTitle} href={`${Astro.site}rss.xml`} />
+
+		<!-- Structured Data -->
+		<SEO 
+			title={title} 
+			description={description} 
+			image={image} 
+			type={type} 
+			articleDate={articleDate} 
+			author={author} 
+		/>
 	</head>
 	<body class="flex flex-col min-h-screen selection:bg-terracotta selection:text-white">
 		<Navigation />
