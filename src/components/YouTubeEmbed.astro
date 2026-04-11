@@ -29,18 +29,17 @@ try {
 const { id, title } = latestVideo;
 ---
 
-<div class="youtube-card group bg-charcoal rounded-3xl overflow-hidden shadow-2xl">
+<div class="youtube-card group bg-charcoal rounded-3xl overflow-hidden shadow-2xl transform-gpu isolate">
   {id ? (
-    <div class="aspect-video w-full">
+    <div class="aspect-video w-full bg-black rounded-t-3xl overflow-hidden">
       <iframe
-        width="100%"
-        height="100%"
-        src={`https://www.youtube.com/embed/${id}`}
+        class="w-full h-full block border-none shadow-none"
+        style="border: 0;"
+        src={`https://www.youtube.com/embed/${id}?rel=0&modestbranding=1`}
         title={title}
-        frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
-        class="group-hover:opacity-90 transition-opacity"
+        loading="lazy"
       ></iframe>
     </div>
   ) : (

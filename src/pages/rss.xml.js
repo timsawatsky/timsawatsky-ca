@@ -10,7 +10,7 @@ export async function GET(context) {
 
 	return rss({
 		title: 'Tim Sawatsky',
-		description: 'Reflections and resources for spiritual direction and counselling.',
+		description: 'Pastoral and contemplative resources.',
 		site: context.site || 'https://timsawatsky.ca',
 		items: items.map((item) => ({
       title: item.data.title,

@@ -1,5 +1,5 @@
 ---
-title: "Feeling needy or dependent?"
+title: "Needy or dependent"
 description: "While God is comfortable with our limits we as men can be at odds with feeling weak and perceive ourselves as needy."
 pubDate: "2026-03-24"
 tags: ["Men", "Prayer", "Reflection"]

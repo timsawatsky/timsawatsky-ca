@@ -17,7 +17,7 @@ const latestReviews = (await getCollection('reviews')).sort(
 ).slice(0, 2);
 ---
 
-<BaseLayout title="Home" description="Spiritual direction, counselling, and contemplative resources.">
+<BaseLayout title="Home" description="Pastoral and contemplative resources.">
 	<div class="fade-in">
 		<section class="mb-24">
 			<div class="flex items-center gap-4 text-xs font-sans font-bold text-terracotta uppercase tracking-[0.2em] mb-6">
@@ -38,7 +38,7 @@ const latestReviews = (await getCollection('reviews')).sort(
 							href={`/blog/${latestPost.id}/`} 
 							class="bg-terracotta text-white font-sans font-bold px-10 py-4 rounded-full hover:scale-105 transition-all no-underline shadow-xl hover:shadow-2xl"
 						>
-							Read Full Reflection
+							Read Full Post
 						</a>
 						<span class="text-sm font-sans font-medium text-charcoal/40 uppercase tracking-widest italic">
 							{latestPost.data.pubDate.toLocaleDateString('en-us', { month: 'long', day: 'numeric', year: 'numeric' })}
@@ -68,7 +68,7 @@ const latestReviews = (await getCollection('reviews')).sort(
 							<p class="text-charcoal/60 line-clamp-2 text-sm leading-relaxed">{post.data.description}</p>
 						</div>
 					))}
-					{otherPosts.length === 0 && <p class="text-charcoal/40 italic">More reflections coming soon.</p>}
+					{otherPosts.length === 0 && <p class="text-charcoal/40 italic">More posts coming soon.</p>}
 				</div>
 			</div>
 
