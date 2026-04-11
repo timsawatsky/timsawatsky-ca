@@ -22,6 +22,8 @@ Follow these steps in your terminal to save your work and update your live websi
     ```
     *Note: Pushing to the main branch will automatically trigger a build and deploy your site to the web.*
 
+    > **Important:** Always ensure image paths start with a leading slash (e.g., `/my-photo.jpg`). If the slash is missing, the image may work on your computer but appear as a broken placeholder once pushed to GitHub.
+
 ---
 
 ## How to View Your Site Locally
