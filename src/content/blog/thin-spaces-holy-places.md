@@ -1,16 +1,16 @@
 ---
-title: "Thin Spaces and Holy Spaces: Italy 2027"
+title: "Thin Spaces and Holy Places: Italy 2027"
 description: "A pilgrimage focusing on prayer and spiritual disciplines from the life of St. Francis. Join us April 19th to 29th, 2027."
 pubDate: "2026-05-17"
 tags: ["Tour", "Prayer", "St. Francis", "Retreat"]
 ---
 
-# Thin Spaces and Holy Spaces
+# Thin Spaces and Holy Places
 ### A Journey into the Life of St. Francis
 
 <img src="/Assisi2.jpg" alt="Assisi, Italy" class="float-left w-1/2 mr-6 mb-4 rounded-3xl shadow-xl" />
 
-Join us for a unique pilgrimage focusing on learning prayer and spiritual disciplines from the life of St. Francis. This tour is designed to be a "Thin Space"—a place where the gap between heaven and earth feels smaller—allowing for a deeper connection with God, others, and yourself.
+Join us for a unique pilgrimage focusing on learning prayer and spiritual disciplines from the life of St. Francis. Explore "Thin Spaces" where the gap between heaven and earth feels smaller. Explore a deeper connection with God, others, and yourself through moments in the life of St. Francis. See how these translate into our modern context.
 
 **Dates:** April 19th – 29th, 2027  
 **Locations:** Rome, Sienna, and Assisi, Italy
@@ -24,7 +24,7 @@ We will stay in monasteries, visit historic churches and museums, and taste the 
 
 ## Led by a Multidisciplinary Team
 The tour is led by a team of professionals dedicated to your spiritual and emotional journey:
-*   **Tim and Melissa Sawatsky:** Pastors and Provisional Counsellors
+*   **Tim and Melissa Sawatsky:** Pastors and Counsellors
 *   **Jordan Bell:** Counsellor and Spiritual Director
 *   **Robin McColl:** Counsellor
 
