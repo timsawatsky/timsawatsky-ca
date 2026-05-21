@@ -16,7 +16,7 @@ Join us for a unique pilgrimage focusing on learning prayer and spiritual discip
 **Locations:** Rome, Tuscany, and Assisi.
 
 ## The Vision
-Our goal is to immerse you in the life of St. Francis, gaining an understanding of what a consecrated life looks like in our modern world. Over ten days, we will travel from the bustling streets of Rome to the quiet hills of Sienna and Assisi. 
+Our goal is to immerse you in the life of St. Francis, gaining an understanding of what a consecrated life looks like in our modern world. Over ten days, we will travel from the bustling streets of Rome to the quiet hills of Tuscany and Assisi. 
 
 We will stay in monasteries, visit historic churches and museums, and taste the local food, all while facilitating times of reflection, teaching, and guided prayer in these sacred locations.
 
