@@ -13,7 +13,7 @@ tags: ["Tour", "Prayer", "St. Francis", "Retreat"]
 Join us for a unique pilgrimage focusing on learning prayer and spiritual disciplines from the life of St. Francis. Explore "Thin Spaces" where the gap between heaven and earth feels smaller. Explore a deeper connection with God, others, and yourself through moments in the life of St. Francis. See how these translate into our modern context.
 
 **Dates:** April 19th – 29th, 2027  
-**Locations:** Rome, Sienna, and Assisi, Italy
+**Locations:** Rome, Tuscany, and Assisi.
 
 ## The Vision
 Our goal is to immerse you in the life of St. Francis, gaining an understanding of what a consecrated life looks like in our modern world. Over ten days, we will travel from the bustling streets of Rome to the quiet hills of Sienna and Assisi. 
