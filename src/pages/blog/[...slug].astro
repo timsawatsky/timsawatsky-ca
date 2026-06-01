@@ -18,7 +18,7 @@ const { Content } = await render(post);
 <BaseLayout 
 	title={post.data.title} 
 	description={post.data.description}
-	image={post.data.heroImage}
+	image={post.data.ogImage || post.data.heroImage}
 	type="article"
 	articleDate={post.data.pubDate.toISOString()}
 >

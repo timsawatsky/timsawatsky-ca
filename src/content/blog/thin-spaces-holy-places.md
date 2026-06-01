@@ -2,6 +2,7 @@
 title: "Thin Spaces and Holy Places: Italy 2027"
 description: "A pilgrimage focusing on prayer and spiritual disciplines from the life of St. Francis. Join us April 19th to 29th, 2027."
 pubDate: "2026-05-17"
+ogImage: "/Assisi2.jpg"
 tags: ["Tour", "Prayer", "St. Francis", "Retreat"]
 ---
 
